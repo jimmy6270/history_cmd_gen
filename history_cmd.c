@@ -52,6 +52,7 @@ int main(int argc, char **argv)
         }
         *(uint32_t *)(cmd_buffer + offset) = timestamp;
         offset += sizeof(uint32_t);
+        printf("timestamp: %d\r\n", timestamp);
     } else if(argc == 3) {
         uint32_t timestamp1 = 0, timestamp2 = 0;
         if(is_timestamp(argv[1])) {
@@ -81,6 +82,7 @@ int main(int argc, char **argv)
         offset += sizeof(uint32_t);
         *(uint32_t *)(cmd_buffer + offset) = timestamp2;
         offset += sizeof(uint32_t);
+        printf("timestamp1: %d, timestamp2: %d\r\n", timestamp1, timestamp2);
     }
 
     printf("%s query[%d]: ", argc == 2 ? "timepoint" : "timeslot", offset);
